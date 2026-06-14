@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="The Bonta Files">
+  <rect width="32" height="32" rx="5" fill="#0a0f1a"/>
+  <rect x="5" y="5" width="22" height="22" rx="2" fill="none" stroke="#b91c1c" stroke-width="1.75"/>
+  <text x="16" y="21" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="800" fill="#dc2626">BF</text>
+</svg>
