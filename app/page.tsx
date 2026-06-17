@@ -148,7 +148,7 @@ const TIMELINE = [
   { year: "2021", event: "Rob Bonta appointed Attorney General. Mia wins special election for AD-18. Her campaign HQ: 1241 High Street — former Viridis Fuels address. Straw donor money flows from Music Cafe front." },
   { year: "2023", event: "Mia Bonta abstains on SB 14 (child sex trafficking as serious felony), sparking nationwide outrage. Governor Newsom intervenes. FBI raids Duong family and Mayor Sheng Thao." },
   { year: "2024", event: "Juarez sends blackmail letter to Rob Bonta (May). CCW data breach exposes 240,000+ permit holders (June). Bonta launches ExxonMobil suit via Cotchett firm (registered foreign agents). Campaign spends $469,000 on Wilson Sonsini." },
-  { year: "2026", event: "Mia Bonta introduces AB 2624. Faces June 2 primary against Andre Sandford and others. Rob Bonta eyes governorship while entangled in federal corruption probe." },
+  { year: "2026", event: "Mia Bonta introduces AB 2624. Rob Bonta eyes governorship while entangled in federal corruption probe." },
 ];
 
 const EVIDENCE_QUOTES = [
@@ -645,11 +645,8 @@ export default function Home() {
             </p>
             <p className="text-base leading-relaxed text-gray-300">
               Now she authors AB 2624 — the &quot;Stop Nick Shirley Act&quot; — to criminalize exposing
-              nonprofit fraud, while facing re-election on{" "}
-              <span className="text-red-400 font-semibold">June 2, 2026</span> against challengers including{" "}
-              <span className="text-white font-semibold">Andre Sandford</span>, a housing program director
-              with child protective services experience who can weaponize her entanglements against her in
-              AD-18.
+              nonprofit fraud while her own nonprofit irregularities and ties to trafficking-front straw donors
+              remain under scrutiny.
             </p>
           </motion.div>
 
@@ -942,15 +939,15 @@ export default function Home() {
           </motion.h2>
           <motion.p variants={fadeUp} className="mb-10 text-base leading-relaxed text-gray-300 md:text-lg">
             Rob and Mia Bonta built their empire in the dark. Public exposure is the antidote. Share the
-            files and download the dossiers before the June 2, 2026 primary.
+            files and download the dossiers.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="mb-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <motion.div variants={fadeUp} className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
             <a
               href={xShareHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded bg-red-700 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-red-600"
+              className="flex w-full items-center justify-center gap-2 rounded bg-red-700 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-red-600 sm:w-auto"
             >
               <Share2 className="h-4 w-4" />
               Share on X
@@ -958,7 +955,7 @@ export default function Home() {
             <a
               href={MIA_DOSSIER_URL}
               download={MIA_DOSSIER_FILENAME}
-              className="flex items-center justify-center gap-2 rounded border border-red-800/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-red-400 transition-colors hover:bg-red-950/30"
+              className="flex w-full items-center justify-center gap-2 rounded border border-red-800/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-red-400 transition-colors hover:bg-red-950/30 sm:w-auto"
             >
               <Download className="h-4 w-4" />
               Mia Bonta Dossier
@@ -966,19 +963,23 @@ export default function Home() {
             <a
               href={ROB_DOSSIER_URL}
               download={ROB_DOSSIER_FILENAME}
-              className="flex items-center justify-center gap-2 rounded border border-red-800/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-red-400 transition-colors hover:bg-red-950/30"
+              className="flex w-full items-center justify-center gap-2 rounded border border-red-800/60 px-8 py-4 text-sm font-bold uppercase tracking-wider text-red-400 transition-colors hover:bg-red-950/30 sm:w-auto"
             >
               <Download className="h-4 w-4" />
               Rob Bonta Dossier
             </a>
           </motion.div>
 
-          <motion.p variants={fadeUp} className="mt-10 text-sm text-gray-500">
-            In Assembly District 18,{" "}
-            <span className="text-gray-400">Andre Sandford</span> is running against Mia Bonta in the June 2,
-            2026 primary — a challenger with child protective services experience who can hold her record to
-            account.
-          </motion.p>
+          <motion.div variants={fadeUp}>
+            <a
+              href={DONATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded bg-red-700 px-10 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-red-600"
+            >
+              Donate
+            </a>
+          </motion.div>
         </motion.div>
       </section>
 

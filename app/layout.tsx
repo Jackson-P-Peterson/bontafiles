@@ -50,7 +50,6 @@ export const metadata: Metadata = {
     "Mario Juarez",
     "behested payments",
     "opposition research",
-    "Andre Sandford",
     "California politics",
     "pay to play",
   ],
