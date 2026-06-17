@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { OG_IMAGE, SITE_TITLE, SITE_URL, ogImageUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,9 +9,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thebontafiles.com";
-
-const siteTitle = "The Bonta Files";
 const siteDescription =
   "The evidence trail of California's most compromised power couple. How Rob and Mia Bonta built a pay-to-play empire inside California's justice system and legislature.";
 
@@ -18,19 +16,21 @@ const shareDescription =
   "Opposition research dossier on Rob and Mia Bonta: Duong family straw donors, Oakland Promise fraud, CCW data breach, $469k legal spend, AB 2624, and the FBI corruption probe.";
 
 const shareImage = {
-  url: "/picture.jpeg",
-  width: 384,
-  height: 381,
-  alt: "Rob and Mia Bonta — The Bonta Files opposition research dossier",
+  url: OG_IMAGE.path,
+  secureUrl: ogImageUrl,
+  width: OG_IMAGE.width,
+  height: OG_IMAGE.height,
+  alt: OG_IMAGE.alt,
+  type: "image/jpeg",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    absolute: siteTitle,
+    absolute: SITE_TITLE,
   },
   description: siteDescription,
-  applicationName: siteTitle,
+  applicationName: SITE_TITLE,
   category: "Politics",
   keywords: [
     "Rob Bonta",
@@ -58,19 +58,24 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: siteTitle,
+    title: SITE_TITLE,
     description: shareDescription,
     type: "website",
     locale: "en_US",
-    siteName: siteTitle,
+    siteName: SITE_TITLE,
     url: SITE_URL,
     images: [shareImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
+    title: SITE_TITLE,
     description: shareDescription,
-    images: [shareImage.url],
+    images: {
+      url: ogImageUrl,
+      alt: OG_IMAGE.alt,
+      width: OG_IMAGE.width,
+      height: OG_IMAGE.height,
+    },
   },
   robots: {
     index: true,
@@ -101,7 +106,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: siteTitle,
+      name: SITE_TITLE,
       description: siteDescription,
       inLanguage: "en-US",
       publisher: { "@id": `${SITE_URL}/#organization` },
@@ -110,7 +115,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: siteTitle,
+      name: SITE_TITLE,
       description: siteDescription,
       isPartOf: { "@id": `${SITE_URL}/#website` },
       about: [
@@ -119,17 +124,19 @@ const jsonLd = {
       ],
       primaryImageOfPage: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/picture.jpeg`,
+        url: ogImageUrl,
+        width: OG_IMAGE.width,
+        height: OG_IMAGE.height,
       },
       inLanguage: "en-US",
     },
     {
       "@type": "Article",
-      headline: siteTitle,
+      headline: SITE_TITLE,
       description: siteDescription,
       author: { "@id": `${SITE_URL}/#organization` },
       publisher: { "@id": `${SITE_URL}/#organization` },
-      image: `${SITE_URL}/picture.jpeg`,
+      image: ogImageUrl,
       mainEntityOfPage: { "@id": `${SITE_URL}/#webpage` },
       about: [
         { "@type": "Person", name: "Rob Bonta" },
@@ -141,7 +148,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
-      name: siteTitle,
+      name: SITE_TITLE,
       url: SITE_URL,
     },
   ],
@@ -155,6 +162,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta property="og:image:width" content={String(OG_IMAGE.width)} />
+        <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content={OG_IMAGE.alt} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:alt" content={OG_IMAGE.alt} />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
         <script
           type="application/ld+json"
